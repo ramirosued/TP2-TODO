@@ -6,7 +6,7 @@ let texto=document.getElementById('textoTareaRapida')
 let tareas=[
 {nombre: "Tarea de matematica", completada: false, tiempoInicio: new Date().getTime(), tiempoFin: null },
 {nombre:"Tarea de lengua", completada:true, tiempoInicio: new Date().getTime(), tiempoFin: new Date().getTime()},
-{nombre:"Tarea de Ingles", completada:true, tiempoInicio: new Date(2024, 3, 27, 11, 0), tiempoFin: new Date(2024, 3, 27, 11, 45) },
+{nombre:"Tarea de Ingles", completada:true, tiempoInicio: new Date().getTime(), tiempoFin: new Date().getTime() },
 {nombre:"Tarea de Efsi", completada:false, tiempoInicio: new Date().getTime(), tiempoFin: null },
 {nombre:"Tarea de quimica", completada:false, tiempoInicio: new Date().getTime(), tiempoFin: null }
 ]
@@ -18,7 +18,7 @@ function mostrarTareas(){
             html += `<li onclick="tacharTarea(${index})" style="text-decoration: line-through;">${n.nombre} <button onclick="eliminarTarea(${index})"><img src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png" height="20px"></img></button></li>`;
             
         } else {
-            html += `<li><button onclick="tacharTarea(${index})">${n.nombre}</button><button onclick="eliminarTarea(${index})"><img src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png"  height="20px"></img></button></li>`;
+            html += `<li onclick="tacharTarea(${index})">${n.nombre}<button onclick="eliminarTarea(${index})"><img src="https://cdn-icons-png.flaticon.com/512/1214/1214594.png"  height="20px"></img></button></li>`;
         }
     });
 listaTareas.innerHTML=html
@@ -27,7 +27,7 @@ mostrarTareas()
  function tacharTarea(i){
     if(tareas[i].completada==true){
         tareas[i].completada=false;
-        tareas.tiempoInicio=null
+        tiempoFin=null;
     }else{
         tareas[i].completada=true;
         tareas[i].tiempoFin=new Date().getTime()
