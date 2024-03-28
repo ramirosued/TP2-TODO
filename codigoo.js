@@ -1,6 +1,7 @@
 let listaTareas =document.getElementById('tareas');
 let nueva=document.getElementById('nuevaTarea')
-let img=document.getElementById('nuevaTarea')
+let texto=document.getElementById('textoTareaRapida')
+
 
 let tareas=[
 {nombre: "Tarea de matematica", completada: false, tiempoInicio: new Date().getTime(), tiempoFin: null },
@@ -37,7 +38,7 @@ mostrarTareas()
 
 document.getElementById("agregar").onclick =()=>{
     if(nueva.value.length > 0){
-        tareas.push({nombre:nueva.value, completada:false, tiempoInicio: new Date().getTime, tiempoFin: null})
+        tareas.push({nombre:nueva.value, completada:false, tiempoInicio: new Date().getTime(), tiempoFin: null})
         mostrarTareas()   
         console.log(tareas)
         
@@ -70,8 +71,8 @@ function tareaMasRapida() {
 document.getElementById("tiempo").onclick = () => {
     const tarea = tareaMasRapida();
     if (tarea) {
-        console.log(`La tarea más rápida realizada es "${tarea.nombre}" que tomó ${tarea.tiempoFin- tarea.tiempoInicio} milisegundos.`);
+texto.innerHTML = `La tarea más rápida realizada es "${tarea.nombre}" que tomó ${((tarea.tiempoFin - tarea.tiempoInicio)/1000).toFixed(1)} segundos.`;
     } else {
-        console.log("No hay tareas completadas para calcular la más rápida.");
+        alert('No hay tareas realizadas')
     }
 };
